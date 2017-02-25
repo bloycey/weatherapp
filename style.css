@@ -10,6 +10,7 @@ body {
     margin-bottom: 0;
     padding: 0;
     background-color: #ffffff;
+    border: none;
 }
 
 .weather {
@@ -21,4 +22,11 @@ body {
 #nav_list > li > a {
     color: #4aa1f3 !important;
     font-weight: 500;
+}
+
+#logo {
+    max-height: 42px;
+    margin-right: 8px;
+    display: inline-block;
+    margin-top: -15px;
 }
