@@ -71,10 +71,23 @@ a:hover {
     color: coral !important;
 }
 
+#cityDiv {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    margin-top:15px
+}
 
+input[type='text'] {
+    height:40px;
+    font-size: 20px;
+}
 
-
-
+#submitCity {
+    height:40px;
+    font-size: 15px;
+    font-weight: bold;
+}
 
 
 
