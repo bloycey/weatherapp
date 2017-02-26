@@ -4,6 +4,14 @@ $(document).ready(function(){
        return getWeather();
        
    }) 
+   
+   document.addEventListener('keypress', function(event) {
+    
+    if (event.keyCode === 13 || event.which === 13) {
+        return getWeather();
+    }
+   });
+                             
     
     
 });
@@ -11,6 +19,7 @@ $(document).ready(function(){
 
 function getWeather() {
     var city = $("#city").val();
+    $("#error").html("");
     
     if(city != ''){
         
@@ -20,9 +29,11 @@ function getWeather() {
             dataType: "jsonp", 
             success: function(data){
                 
-                console.log(data);
+                var widget = showResults(data)
                 
-                $("#showWeather").html();
+                $("#showWeather").html(widget);
+                
+                $("#city").val('');
             } 
             
         });
@@ -32,3 +43,31 @@ function getWeather() {
         $("#error").html("<div>City Field Cannot be empty</div>")
     }
 }
+
+function showResults(data){
+    return  "<h2>Current Weather for: <strong>" + data.name + ", </strong>" + data.sys.country + "</h2>" +
+            "<br>" +
+            "<p>Temperature: " + data.main.temp + "&deg;C</p>" +
+            "<p>Pressure: " + data.main.pressure + "</p>" + 
+            "<p>Humidity: " + data.main.humidity + "</p>" +
+            "<p>Min Temperature: " + data.main.temp_min + "</p>" +
+            "<p>Max Temperature: " + data.main.temp_max + "</p>" +
+            "<p>Wind Speed: " + data.wind.speed + "</p>";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
